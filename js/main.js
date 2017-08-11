@@ -69,13 +69,12 @@ function slide_home() {
             pause: 3000,
             pauseOnHover:true,
             responsive: [{
-                breakpoint: 600,
+                breakpoint: 980,
                 settings: {
-                    item: 2,
-                    slideMove: 1
+                item: 2,
+                slideMove: 1,
                 }
-            },
-            {
+            },{
                 breakpoint: 420,
                 settings: {
                     item: 1,
@@ -100,7 +99,6 @@ function slide_home() {
                 settings: {
                 item: 3,
                 slideMove: 1,
-                slideMargin: 0,
                 }
                 
             },{
@@ -135,3 +133,19 @@ function search() {
     });
 }
 
+function header_scroll() {
+    $(window).scroll(function(){
+
+        var cambio=($(window).scrollTop()>0)?true:false;
+
+        if (cambio){    
+            $(".header_top").fadeOut(300);
+            $(".header_middle").css('padding', '.75rem 0');
+            $(".header_middle .sec_logo img").css('height', '5rem');
+        }else{
+            $(".header_top").fadeIn();
+            $(".header_middle").css('padding', '2rem 0');
+            $(".header_middle .sec_logo img").css('height', '6rem');
+        };
+    });
+}
